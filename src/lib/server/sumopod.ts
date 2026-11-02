@@ -42,28 +42,45 @@ export async function createQrisPayment(p: { orderId: string; amount: number; su
 }
 
 /**
- * Verifikasi webhook. Utama: tanda tangan svix (SUMOPOD_WEBHOOK_SECRET, whsec_...).
- * Cadangan: header X-Webhook-Token (SUMOPOD_WEBHOOK_TOKEN, whtok_...).
+ * Verifikasi webhook Sumopod. Lolos bila SALAH SATU benar:
+ *  1. tanda tangan svix (SUMOPOD_WEBHOOK_SECRET, whsec_...), atau
+ *  2. header X-Webhook-Token sama dengan SUMOPOD_WEBHOOK_TOKEN (whtok_...).
+ * Alasan penolakan dicatat di log Vercel (tanpa menampilkan nilai rahasia).
  */
 export function verifyWebhook(headers: Headers, rawBody: string): boolean {
-  const secret = process.env.SUMOPOD_WEBHOOK_SECRET;
-  if (secret) {
-    const id = headers.get("svix-id");
-    const ts = headers.get("svix-timestamp");
-    const sig = headers.get("svix-signature");
-    if (!id || !ts || !sig) return false;
-    const age = Math.abs(Date.now() / 1000 - Number(ts));
-    if (!Number.isFinite(age) || age > 300) return false; // tolak replay > 5 menit
-    const key = Buffer.from(secret.replace(/^whsec_/, ""), "base64");
-    const expected = crypto.createHmac("sha256", key).update(`${id}.${ts}.${rawBody}`).digest("base64");
-    return sig
-      .split(" ")
-      .map((s) => s.split(",")[1])
-      .filter(Boolean)
-      .some((s) => s.length === expected.length && crypto.timingSafeEqual(Buffer.from(s), Buffer.from(expected)));
+  const secret = process.env.SUMOPOD_WEBHOOK_SECRET?.trim();
+  const token = process.env.SUMOPOD_WEBHOOK_TOKEN?.trim();
+  const reasons: string[] = [];
+
+  if (token) {
+    const got = headers.get("x-webhook-token")?.trim();
+    if (got && got.length === token.length && crypto.timingSafeEqual(Buffer.from(got), Buffer.from(token))) return true;
+    reasons.push(got ? "token-mismatch" : "no-token-header");
   }
-  const token = process.env.SUMOPOD_WEBHOOK_TOKEN;
-  const got = headers.get("x-webhook-token");
-  if (token && got && got.length === token.length) return crypto.timingSafeEqual(Buffer.from(got), Buffer.from(token));
+
+  if (secret) {
+    const id = headers.get("svix-id") ?? headers.get("webhook-id");
+    const ts = headers.get("svix-timestamp") ?? headers.get("webhook-timestamp");
+    const sig = headers.get("svix-signature") ?? headers.get("webhook-signature");
+    if (!id || !ts || !sig) reasons.push("no-svix-headers");
+    else {
+      const age = Math.abs(Date.now() / 1000 - Number(ts));
+      if (!Number.isFinite(age) || age > 600) reasons.push("timestamp-too-old");
+      else {
+        const key = Buffer.from(secret.replace(/^whsec_/, ""), "base64");
+        const expected = crypto.createHmac("sha256", key).update(`${id}.${ts}.${rawBody}`).digest("base64");
+        const ok = sig
+          .split(" ")
+          .map((x) => (x.includes(",") ? x.split(",")[1] : x))
+          .filter(Boolean)
+          .some((x) => x.length === expected.length && crypto.timingSafeEqual(Buffer.from(x), Buffer.from(expected)));
+        if (ok) return true;
+        reasons.push("signature-mismatch");
+      }
+    }
+  }
+
+  if (!secret && !token) reasons.push("env-not-set: SUMOPOD_WEBHOOK_SECRET / SUMOPOD_WEBHOOK_TOKEN kosong di server");
+  console.warn("[sumopod webhook] ditolak:", reasons.join(", "), "| header:", [...headers.keys()].filter((k) => /svix|webhook/i.test(k)).join(","));
   return false;
 }
