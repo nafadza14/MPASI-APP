@@ -21,7 +21,7 @@ export default async function Cetak({ params, searchParams }: { params: Promise<
       <PrintButton />
       <h1 className="text-2xl font-bold text-teal-600">Menu MPASI {c.child_name}</h1>
       <p className="text-muted">
-        Bulan {plan.month} · mulai {plan.startDate} · usia {ageLabel(c.answers.dob, plan.startDate)} · Flouris Care
+        Bulan {plan.month} · mulai {plan.startDate} · usia {ageLabel(c.answers.dob, plan.startDate)} · Flourish Care
       </p>
       <table className="mt-4 w-full border-collapse">
         <thead>

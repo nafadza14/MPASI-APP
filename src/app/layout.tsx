@@ -7,10 +7,10 @@ import "./globals.css";
 import MetaPixel from "@/components/MetaPixel";
 
 export const metadata: Metadata = {
-  title: "Menu MPASI Personal 30 Hari — Flouris Care",
+  title: "Menu MPASI Personal 30 Hari — Flourish Care",
   description:
     "Jadwal menu MPASI 30 hari yang disusun khusus untuk si kecil: sesuai usia, tekstur, alergi, dan bahan di rumah.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://mpasi.flouriscare.id"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://mpasi.flourishcare.id"),
 };
 
 export const viewport: Viewport = {

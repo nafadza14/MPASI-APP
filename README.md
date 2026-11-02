@@ -1,4 +1,4 @@
-# Menu MPASI Personal 30 Hari — Flouris Care
+# Menu MPASI Personal 30 Hari — Flourish Care
 
 Web app funnel + aplikasi menu MPASI personal: kuis 10 langkah → pratinjau gratis hari 1–3 → paywall QRIS (Sumopod) → aplikasi menu 30 hari (jadwal harian, resep, daftar belanja, favorit, ganti menu, cetak PDF), upsell setelah bayar, dan perpanjangan bulan berikutnya.
 
@@ -32,7 +32,7 @@ tests/                   Uji aturan generator + uji keamanan webhook
 
 ## 2. Siapkan Sumopod
 
-1. Dashboard Sumopod → **Settings → Webhook URL**: `https://mpasi.flouriscare.id/api/webhook/sumopod`
+1. Dashboard Sumopod → **Settings → Webhook URL**: `https://mpasi.flourishcare.id/api/webhook/sumopod`
 2. Salin **Webhook signing secret** (`whsec_...`) → env `SUMOPOD_WEBHOOK_SECRET`.
    (Alternatif lebih sederhana: webhook token `whtok_...` → env `SUMOPOD_WEBHOOK_TOKEN`.)
 3. Tekan **Send test event** → harus mendapat respons 200 `{"status":"ignored"}`.
@@ -53,7 +53,7 @@ git push -u origin main
 
 | Nama | Isi |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | `https://mpasi.flouriscare.id` |
+| `NEXT_PUBLIC_SITE_URL` | `https://mpasi.flourishcare.id` |
 | `NEXT_PUBLIC_SUPABASE_URL` | `https://hycxkiyqobtdofpvopst.supabase.co` |
 | `SUPABASE_SECRET_KEY` | `sb_secret_...` |
 | `SUMOPOD_API_KEY` | API key Sumopod (yang baru) |
@@ -63,7 +63,7 @@ git push -u origin main
 | `NEXT_PUBLIC_META_PIXEL_ID`, `META_PIXEL_ID` | ID Pixel |
 | `META_CAPI_TOKEN` | Token Conversions API (Events Manager → Settings) |
 
-3. Deploy → **Settings → Domains** → tambah `mpasi.flouriscare.id`, lalu buat CNAME `mpasi` → `cname.vercel-dns.com` di DNS domain.
+3. Deploy → **Settings → Domains** → tambah `mpasi.flourishcare.id`, lalu buat CNAME `mpasi` → `cname.vercel-dns.com` di DNS domain.
 4. Jangan pernah mengisi `DEMO_MODE` di Production.
 
 ## 5. Tes sebelum beriklan

@@ -25,7 +25,7 @@ export default function Masuk() {
       <div className="mt-8 space-y-3 px-5">
         <label className="block rounded-[16px] border border-line bg-[#f7f8fa] px-4 py-3 focus-within:border-teal-500 focus-within:bg-white">
           <span className="block text-[11px] text-muted">Link akses</span>
-          <input value={link} onChange={(e) => setLink(e.target.value)} placeholder="https://mpasi.flouriscare.id/m/…" className="w-full bg-transparent text-[15px] outline-none" />
+          <input value={link} onChange={(e) => setLink(e.target.value)} placeholder="https://mpasi.flourishcare.id/m/…" className="w-full bg-transparent text-[15px] outline-none" />
         </label>
         {err && <p className="text-sm text-orange-700">{err}</p>}
         <Button

@@ -44,7 +44,7 @@ export default function Onboarding() {
   return (
     <main className="flex min-h-dvh flex-col px-6 pb-6 pt-5">
       <div className="flex items-center justify-between text-xs">
-        <span className="font-semibold tracking-wide text-teal-600">flouris care · MPASI</span>
+        <span className="font-semibold tracking-wide text-teal-600">flourish care · MPASI</span>
         <button onClick={() => setSample(true)} className="text-muted">
           Contoh menu
         </button>

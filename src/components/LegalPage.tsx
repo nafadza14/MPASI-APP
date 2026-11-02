@@ -3,7 +3,7 @@ import { IconBack } from "./icons";
 
 export default function LegalPage({ title, children }: { title: string; children: React.ReactNode }) {
   const admin = process.env.NEXT_PUBLIC_ADMIN_WA;
-  const company = process.env.NEXT_PUBLIC_COMPANY_NAME || "Flouris Care";
+  const company = process.env.NEXT_PUBLIC_COMPANY_NAME || "Flourish Care";
   return (
     <main className="px-6 pb-12 pt-6 text-sm leading-relaxed">
       <Link href="/" className="flex h-10 w-10 items-center justify-center rounded-full bg-canvas" aria-label="Kembali">
