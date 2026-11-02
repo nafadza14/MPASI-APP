@@ -2,14 +2,20 @@
 
 Web app funnel + aplikasi menu MPASI personal: kuis 10 langkah → pratinjau gratis hari 1–3 → paywall QRIS (Sumopod) → aplikasi menu 30 hari (jadwal harian, resep, daftar belanja, favorit, ganti menu, cetak PDF), upsell setelah bayar, dan perpanjangan bulan berikutnya.
 
-Stack: Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · Supabase (Postgres) · Sumopod QRIS · Meta Pixel + Conversions API · Vercel.
+Stack: Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · Motion (animasi & transisi ala iOS) · Supabase (Postgres) · Sumopod QRIS · Meta Pixel + Conversions API · Vercel.
+
+- **Desain**: gaya aplikasi bayi Kiddo (teal + oranye, foto piring bundar, angka hari besar, kartu oranye, bottom nav).
+- **Transisi**: halaman masuk dari kanan / kembali dari kiri (kurva iOS), langkah kuis bergeser, bottom sheet bisa ditarik, tombol "tekan", daftar muncul berurutan.
+- **Foto**: makanan & bahan dari Unsplash (lisensi komersial), kredit di `/kredit-foto`. Daftar foto di `src/lib/photos.ts`.
+- **Resep**: 1.600+ resep dari kombinasi bahan (protein × sayur × karbo × cara olah) — rata-rata hanya 11–17% resep yang sama antar dua anak seusia.
 
 ## Struktur
 
 ```
 src/app/                 Halaman (landing, kuis, hasil+paywall, bayar, sukses, aplikasi /m/[token])
 src/app/api/             checkout, webhook/sumopod, orders/[code], upsell, swap, favorite, demo/pay
-src/lib/recipes.ts       Database resep (DRAF — wajib ditinjau ahli gizi)
+src/lib/recipes.ts       Katalog bahan + generator 1.600+ resep (DRAF — wajib ditinjau ahli gizi)
+src/lib/photos.ts        Foto Unsplash (id + fotografer)
 src/lib/generator.ts     Mesin penyusun menu 30 hari + aturan keamanan + daftar belanja
 src/lib/pricing.ts       Paket, order bump, upsell, perpanjangan
 src/lib/server/          Supabase, Sumopod, Meta CAPI, WhatsApp, fulfilment pembayaran
@@ -89,7 +95,7 @@ node tests/webhook.e2e.js     # uji webhook (butuh server demo di port 3005, lih
 
 ## Yang masih perlu Anda lengkapi
 
-- **Review ahli gizi** untuk `src/lib/recipes.ts` (58 resep draf, takaran, tekstur) dan tabel kebutuhan harian. Target PRD 250 resep.
+- **Review ahli gizi** untuk `src/lib/recipes.ts`: katalog bahan, takaran per porsi, langkah per cara olah, dan tabel kebutuhan harian. Karena resep dibentuk dari template, ahli gizi cukup meninjau ±60 bahan dan ±30 cara olah, bukan 1.600 resep satu per satu.
 - **WhatsApp otomatis**: isi `WA_PROVIDER` (`fonnte` atau `webhook`). Tanpa ini, link akses tetap tampil di halaman sukses dan profil.
 - **Pengecekan status ke Sumopod**: dokumentasi Sumopod belum menyebut endpoint cek status, jadi sistem mengandalkan webhook. Bila webhook gagal, kirim ulang dari tab Webhooks di dashboard Sumopod.
 - Halaman legal: isi nama badan usaha di `NEXT_PUBLIC_COMPANY_NAME`.

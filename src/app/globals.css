@@ -11,7 +11,7 @@
   --color-orange-400: #ffad3b;
   --color-orange-500: #fb9a1b;
   --color-orange-600: #e8850a;
-  --color-ink: #1d2433;
+  --color-ink: #1f2433;
   --color-muted: #8a93a3;
   --color-line: #edf0f3;
   --color-canvas: #f4f6f8;
@@ -35,6 +35,11 @@ body {
   min-height: 100dvh;
   background: #fff;
   position: relative;
+  overflow-x: clip;
+}
+@media (min-width: 480px) {
+  body { background: #e9f3f0; }
+  .app-shell { box-shadow: 0 0 60px rgba(29,36,51,.08); }
 }
 
 .blur-lock {

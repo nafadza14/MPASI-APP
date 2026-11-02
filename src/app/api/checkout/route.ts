@@ -55,7 +55,7 @@ export async function POST(req: Request) {
       client_ip: req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? null,
       user_agent: req.headers.get("user-agent")?.slice(0, 300) ?? null,
     });
-    const url = await startPayment(order, siteUrl(req), "/hasil?batal=1");
+    const url = await startPayment(order, siteUrl(req), "/checkout?batal=1");
     return NextResponse.json({ url, code: order.code, amount: order.amount });
   } catch (err) {
     console.error("checkout gagal", err);

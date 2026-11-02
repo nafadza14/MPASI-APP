@@ -1,7 +1,7 @@
-// Jalankan dengan server demo: DEMO_MODE=1 SUMOPOD_WEBHOOK_SECRET=whsec_dGVzdHNlY3JldHRlc3RzZWNyZXQ= npm start -- -p 3005
+// Jalankan dengan server demo: DEMO_MODE=1 SUMOPOD_WEBHOOK_SECRET=whsec_dGVzdHNlY3JldHRlc3RzZWNyZXQ= npm start -- -p 3006
 // lalu: node tests/webhook.e2e.js
 const crypto = require("crypto");
-const B = process.env.BASE || "http://localhost:3005";
+const B = process.env.BASE || "http://localhost:3006";
 const secret = "whsec_dGVzdHNlY3JldHRlc3RzZWNyZXQ=";
 const sign = (body, ts = Math.floor(Date.now() / 1000)) => {
   const id = "msg_1";

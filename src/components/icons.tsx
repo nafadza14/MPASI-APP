@@ -11,3 +11,13 @@ export const IconSwap = ({ className = "h-4 w-4" }: P) => (<svg viewBox="0 0 24 
 export const IconPrint = ({ className = "h-5 w-5" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M6 9V3h12v6M6 18H4a1 1 0 01-1-1v-6a2 2 0 012-2h14a2 2 0 012 2v6a1 1 0 01-1 1h-2" /><rect x="6" y="14" width="12" height="7" /></svg>);
 export const IconClock = ({ className = "h-4 w-4" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></svg>);
 export const IconChevron = ({ className = "h-4 w-4" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M9 6l6 6-6 6" /></svg>);
+export const IconSearch = ({ className = "h-5 w-5" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>);
+export const IconPlus = ({ className = "h-4 w-4" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M12 5v14M5 12h14" /></svg>);
+export const IconMinus = ({ className = "h-4 w-4" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M5 12h14" /></svg>);
+export const IconArrow = ({ className = "h-4 w-4" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M5 12h14M13 6l6 6-6 6" /></svg>);
+export const IconBell = ({ className = "h-5 w-5" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M6 8a6 6 0 1112 0c0 7 3 8 3 8H3s3-1 3-8M10 20a2 2 0 004 0" /></svg>);
+export const IconEdit = ({ className = "h-4 w-4" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M4 20h4L19 9l-4-4L4 16v4z" /></svg>);
+export const IconLink = ({ className = "h-5 w-5" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M10 14a5 5 0 007 0l3-3a5 5 0 00-7-7l-1 1M14 10a5 5 0 00-7 0l-3 3a5 5 0 007 7l1-1" /></svg>);
+export const IconChat = ({ className = "h-5 w-5" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M21 12a8 8 0 01-11.6 7.1L4 20l1-4.6A8 8 0 1121 12z" /></svg>);
+export const IconCalendar = ({ className = "h-5 w-5" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><rect x="3" y="5" width="18" height="16" rx="3" /><path d="M8 3v4M16 3v4M3 10h18" /></svg>);
+export const IconShield = ({ className = "h-5 w-5" }: P) => (<svg viewBox="0 0 24 24" className={className} {...s}><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" /></svg>);

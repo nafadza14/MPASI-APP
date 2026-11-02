@@ -19,6 +19,7 @@ export function parseAnswers(x: unknown): QuizAnswers | null {
   if (!oneOf(o.cookMode, ["harian", "mealprep"] as const)) return null;
   return {
     name,
+    ...(o.gender === "l" || o.gender === "p" ? { gender: o.gender } : {}),
     dob,
     started: o.started,
     texture: o.texture,

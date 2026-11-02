@@ -11,6 +11,7 @@ export type Started = "belum" | "baru" | "lanjut";
 export type PackageId = "dasar" | "lengkap" | "tigabulan";
 
 export interface Ingredient {
+  key?: string; // kunci foto bahan (lihat ingredients.ts)
   item: string;
   qty: number;
   unit: "g" | "ml" | "sdm" | "sdt" | "butir" | "buah" | "lembar" | "batang" | "siung";
@@ -30,11 +31,13 @@ export interface Recipe {
   cost: 1 | 2 | 3;
   minutes: number;
   freezable: boolean;
-  emoji: string;
+  img: string; // kunci foto hidangan (photos.ts)
+  family: string; // jenis olahan, mis. "bubur", "nasi-tim"
 }
 
 export interface QuizAnswers {
   name: string;
+  gender?: "l" | "p";
   dob: string; // YYYY-MM-DD
   started: Started;
   texture: Texture;

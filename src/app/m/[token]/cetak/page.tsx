@@ -52,7 +52,7 @@ export default async function Cetak({ params, searchParams }: { params: Promise<
         return (
           <section key={id} className="mt-4 break-inside-avoid border-b border-line pb-3">
             <p className="text-sm font-bold">
-              {r.emoji} {r.name}
+              {r.name}
             </p>
             <p className="text-muted">{r.ingredients.map((g) => `${g.item} ${g.unit === "g" || g.unit === "ml" ? scaleQty(g.qty, st) : g.qty} ${g.unit}`).join(" · ")}</p>
             <ol className="list-decimal pl-5">
