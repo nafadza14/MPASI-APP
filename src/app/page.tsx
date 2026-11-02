@@ -10,8 +10,8 @@ import { store } from "@/lib/client";
 import { RECIPES } from "@/lib/recipes";
 
 const SLIDES = [
-  { photo: "h_babyeat", float: ["carrot", "spinach", "chicken"], title: "Menu MPASI yang pas untuk si kecil", sub: "Disusun dari usia, tekstur, dan alergi anak Bunda — bukan template yang sama untuk semua." },
-  { photo: "x_carrotsoup", plate: true, float: ["pumpkin", "egg", "broccoli"], title: `${Math.floor(RECIPES.length / 100) * 100}+ variasi resep rumahan`, sub: "Bahan pasar, takaran per porsi, tekstur naik bertahap sesuai panduan WHO & IDAI." },
+  { photo: "pbaby1", float: ["carrot", "spinach", "chicken"], title: "Menu MPASI yang pas untuk si kecil", sub: "Disusun dari usia, tekstur, dan alergi anak Bunda — bukan template yang sama untuk semua." },
+  { photo: "pporridge3", plate: true, float: ["pumpkin", "egg", "broccoli"], title: `${Math.floor(RECIPES.length / 100) * 100}+ variasi resep rumahan`, sub: "Bahan pasar, takaran per porsi, tekstur naik bertahap sesuai panduan WHO & IDAI." },
   { photo: "h_highchair", float: ["avocado", "banana", "salmon"], title: "Lihat 3 hari pertama gratis", sub: "Kalau cocok, buka 30 hari dengan sekali bayar QRIS. Garansi uang kembali 7 hari." },
 ];
 

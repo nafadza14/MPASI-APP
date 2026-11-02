@@ -6,7 +6,7 @@ Stack: Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · Motion (anima
 
 - **Desain**: gaya aplikasi bayi Kiddo (teal + oranye, foto piring bundar, angka hari besar, kartu oranye, bottom nav).
 - **Transisi**: halaman masuk dari kanan / kembali dari kiri (kurva iOS), langkah kuis bergeser, bottom sheet bisa ditarik, tombol "tekan", daftar muncul berurutan.
-- **Foto**: makanan & bahan dari Unsplash (lisensi komersial), kredit di `/kredit-foto`. Daftar foto di `src/lib/photos.ts`.
+- **Foto**: masakan Indonesia dari Pexels + bahan dari Unsplash (keduanya lisensi komersial), kredit di `/kredit-foto`. Daftar foto di `src/lib/photos.ts`.
 - **Resep**: 1.600+ resep dari kombinasi bahan (protein × sayur × karbo × cara olah) — rata-rata hanya 11–17% resep yang sama antar dua anak seusia.
 
 ## Struktur
@@ -15,7 +15,7 @@ Stack: Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · Motion (anima
 src/app/                 Halaman (landing, kuis, hasil+paywall, bayar, sukses, aplikasi /m/[token])
 src/app/api/             checkout, webhook/sumopod, orders/[code], upsell, swap, favorite, demo/pay
 src/lib/recipes.ts       Katalog bahan + generator 1.600+ resep (DRAF — wajib ditinjau ahli gizi)
-src/lib/photos.ts        Foto Unsplash (id + fotografer)
+src/lib/photos.ts        Foto Pexels & Unsplash (id + fotografer)
 src/lib/generator.ts     Mesin penyusun menu 30 hari + aturan keamanan + daftar belanja
 src/lib/pricing.ts       Paket, order bump, upsell, perpanjangan
 src/lib/server/          Supabase, Sumopod, Meta CAPI, WhatsApp, fulfilment pembayaran

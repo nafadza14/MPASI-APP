@@ -18,7 +18,7 @@ export const ING: Record<string, Ing> = {
   hatiayam: { name: "Hati ayam", short: "Hati Ayam", photo: "liver", group: "protein", protein: "hati", cost: 1, iron: true },
   hatisapi: { name: "Hati sapi", short: "Hati Sapi", photo: "beefliver", group: "protein", protein: "hati", cost: 2, iron: true },
   sapi: { name: "Daging sapi giling", short: "Daging Sapi", photo: "beef", group: "protein", protein: "sapi", cost: 2, iron: true },
-  kembung: { name: "Ikan kembung fillet", short: "Ikan Kembung", photo: "mackerel", group: "protein", protein: "ikan", allergen: "ikan", cost: 1 },
+  kembung: { name: "Ikan kembung fillet", short: "Ikan Kembung", photo: "pkembung", group: "protein", protein: "ikan", allergen: "ikan", cost: 1 },
   nila: { name: "Ikan nila fillet", short: "Ikan Nila", photo: "tilapia", group: "protein", protein: "ikan", allergen: "ikan", cost: 1 },
   salmon: { name: "Salmon fillet", short: "Salmon", photo: "salmon", group: "protein", protein: "ikan", allergen: "ikan", cost: 3 },
   dori: { name: "Ikan dori fillet", short: "Ikan Dori", photo: "dory", group: "protein", protein: "ikan", allergen: "ikan", cost: 2 },
@@ -34,7 +34,7 @@ export const ING: Record<string, Ing> = {
   nasi: { name: "Nasi lembek", short: "Nasi", photo: "rice", group: "karbo", cost: 1 },
   kentang: { name: "Kentang", short: "Kentang", photo: "potato", group: "karbo", color: "white", cost: 1 },
   ubi: { name: "Ubi oranye", short: "Ubi", photo: "sweetpotato", group: "karbo", color: "orange", cost: 1 },
-  ubiungu: { name: "Ubi ungu", short: "Ubi Ungu", photo: "purplesweetpotato", group: "karbo", color: "purple", cost: 1 },
+  ubiungu: { name: "Ubi ungu", short: "Ubi Ungu", photo: "pubiungu", group: "karbo", color: "purple", cost: 1 },
   oat: { name: "Oat (rolled oats)", short: "Oat", photo: "oats", group: "karbo", allergen: "gandum", cost: 2 },
   makaroni: { name: "Makaroni kecil", short: "Makaroni", photo: "macaroni", group: "karbo", allergen: "gandum", cost: 1 },
   mie: { name: "Mie telur", short: "Mie", photo: "noodles", group: "karbo", allergen: "gandum", cost: 1 },
@@ -45,9 +45,9 @@ export const ING: Record<string, Ing> = {
   bayammerah: { name: "Bayam merah", short: "Bayam Merah", photo: "redspinach", group: "sayur", color: "red", iron: true },
   brokoli: { name: "Brokoli", short: "Brokoli", photo: "broccoli", group: "sayur", color: "green" },
   labukuning: { name: "Labu kuning", short: "Labu Kuning", photo: "pumpkin", group: "sayur", color: "orange" },
-  labusiam: { name: "Labu siam", short: "Labu Siam", photo: "chayote", group: "sayur", color: "green" },
+  labusiam: { name: "Labu siam", short: "Labu Siam", photo: "plabusiam", group: "sayur", color: "green" },
   buncis: { name: "Buncis", short: "Buncis", photo: "greenbeans", group: "sayur", color: "green" },
-  kacangpanjang: { name: "Kacang panjang", short: "Kacang Panjang", photo: "longbeans", group: "sayur", color: "green" },
+  kacangpanjang: { name: "Kacang panjang", short: "Kacang Panjang", photo: "pkacangpanjang", group: "sayur", color: "green" },
   jagung: { name: "Jagung manis pipil", short: "Jagung", photo: "corn", group: "sayur", color: "yellow" },
   tomat: { name: "Tomat (buang biji & kulit)", short: "Tomat", photo: "tomato", group: "sayur", color: "red" },
   sawi: { name: "Sawi / pakcoy", short: "Pakcoy", photo: "bokchoy", group: "sayur", color: "green" },
@@ -129,12 +129,12 @@ function build(p: {
 function soupPhoto(seed: string, vegKey: string, carbKey: string) {
   const c = ING[carbKey]?.color === "purple" ? "purple" : ING[vegKey]?.color;
   const opts: Record<string, string[]> = {
-    orange: ["x_carrotsoup", "x_carrotsoup2", "x_pumpkinsoup"],
-    yellow: ["x_cornsoup", "x_pumpkinsoup"],
-    green: ["x_spinachsoup", "x_peasoup"],
-    red: ["x_tomatosoup"],
+    orange: ["ppuree", "ppuree2", "ppuree3", "x_carrotsoup", "x_pumpkinsoup"],
+    yellow: ["ppuree3", "ppuree2", "x_cornsoup"],
+    green: ["pporridge", "pporridge2", "x_spinachsoup", "x_peasoup"],
+    red: ["pporridge3", "x_tomatosoup"],
     purple: ["x_beetsoup"],
-    white: ["x_mashed", "x_mashed2", "x_riceporridge", "x_riceporridge2"],
+    white: ["pporridge2", "pporridge3", "ppuree", "ppuree2", "x_riceporridge", "x_riceporridge2"],
   };
   return pick(seed, opts[c ?? "white"] ?? opts.white);
 }
@@ -242,7 +242,7 @@ const METHODS: Method[] = [
     proteins: P2,
     vegs: V2,
     stages: [2, 3],
-    img: (s) => pick(s, ["x_steamedrice", "x_chickenrice", "x_chickenrice2", "d_ricebowl"]),
+    img: (s) => pick(s, ["pnasi", "pricebowl", "x_steamedrice", "x_chickenrice"]),
     carb: () => "beras",
     extras: (s) => [ing("bawang", 1, "siung"), ing("kaldu", 120, "ml"), ing(fatFor(s), 1, "sdt")],
     steps: (p, v) => [PROTEIN_PREP[p], "Tumis bawang dengan sedikit lemak hingga harum.", `Masukkan beras, ${lc(p)}, ${lc(v)}, dan kaldu ke wadah tahan panas.`, "Tim (kukus dalam wadah) 40–45 menit hingga nasi lembut, aduk, cincang sesuai kemampuan mengunyah."],
@@ -255,7 +255,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "ayampaha", "sapi", "dori", "salmon", "udang", "telur", "hatiayam"],
     vegs: ["wortel", "brokoli", "kembangkol", "buncis", "jagung", "labusiam", "sawi", "zucchini", "tomat", "jamur"],
     stages: [2, 3],
-    img: (s) => pick(s, ["d_soup", "x_soto", "d_soup"]),
+    img: (s) => pick(s, ["psop", "psop2", "d_soup"]),
     carb: carbRotate,
     extras: () => [ing("bawang", 1, "siung"), ing("kaldu", 150, "ml"), ing("minyak", 1, "sdt")],
     steps: (p, v, c) => [PROTEIN_PREP[p], "Didihkan kaldu bersama bawang yang sudah digeprek.", `Masukkan ${lc(v)} dan ${lc(p)}, masak hingga sayur sangat empuk.`, `Sajikan dengan ${lc(c)}, potong atau lumatkan sesuai usia.`],
@@ -281,7 +281,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "ayampaha", "kembung", "nila", "dori", "telur", "tahu", "tempe"],
     vegs: ["labusiam", "wortel", "buncis", "kacangpanjang", "labukuning", "zucchini"],
     stages: [2, 3],
-    img: (s) => pick(s, ["x_coconutcurry", "d_curry"]),
+    img: (s) => pick(s, ["pgulai", "x_coconutcurry"]),
     carb: carbRotate,
     extras: () => [ing("kunyit", 0.5, "sdt"), ing("bawang", 1, "siung"), ing("santan", 2, "sdm"), ing("kaldu", 80, "ml")],
     steps: (p, v, c) => [PROTEIN_PREP[p], "Tumis bawang dan kunyit dengan sedikit minyak hingga harum.", `Masukkan ${lc(p)}, ${lc(v)}, kaldu, dan santan; masak api kecil sambil diaduk hingga empuk.`, `Sajikan dengan ${lc(c)}, cincang sesuai tahap tekstur.`],
@@ -294,7 +294,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "ayampaha", "telur", "tahu", "hatiayam"],
     vegs: ["labusiam", "wortel", "buncis", "kacangpanjang", "labukuning"],
     stages: [2, 3],
-    img: (s) => pick(s, ["x_coconutcurry", "d_curry"]),
+    img: (s) => pick(s, ["popor", "pgulai"]),
     carb: carbRotate,
     extras: () => [ing("bawang", 1, "siung"), ing("santan", 50, "ml"), ing("kaldu", 80, "ml")],
     steps: (p, v, c) => [PROTEIN_PREP[p], "Tumis bawang dengan sedikit minyak, tambahkan sedikit ketumbar bubuk bila ada.", `Masukkan ${lc(p)}, ${lc(v)}, kaldu, dan santan, aduk terus sampai mendidih dan sayur empuk.`, `Sajikan dengan ${lc(c)}.`],
@@ -307,7 +307,7 @@ const METHODS: Method[] = [
     proteins: ["kembung", "nila", "dori", "ayam", "tahu", "teri"],
     vegs: ["tomat", "bayam", "jamur", "wortel", "labusiam"],
     stages: [2, 3],
-    img: (s, p) => (["kembung", "nila", "dori", "teri"].includes(p) ? "d_fish" : pick(s, ["d_tofu", "x_chickenrice2"])),
+    img: (s, p) => (["kembung", "nila", "dori", "teri"].includes(p) ? "ppepes" : pick(s, ["ppepes", "d_tofu"])),
     carb: () => "nasi",
     extras: () => [ing("bawang", 1, "siung"), ing("kunyit", 0.5, "sdt"), ing("minyak", 1, "sdt")],
     steps: (p, v) => [`Cincang halus ${lc(p)} mentah (bebas duri) dan ${lc(v)}.`, "Campur dengan bawang dan kunyit yang dihaluskan serta sedikit minyak.", "Bungkus daun pisang, kukus 25–30 menit hingga matang sempurna.", "Sajikan dengan nasi lembek."],
@@ -320,7 +320,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "sapi", "dori", "udang", "salmon"],
     vegs: ["wortel", "bayam", "brokoli", "jagung", "buncis", "labukuning"],
     stages: [2, 3],
-    img: () => "d_meatballs",
+    img: () => "pbakso",
     carb: carbRotate,
     extras: () => [ing("bawang", 1, "siung"), ing("kaldu", 60, "ml")],
     steps: (p, v, c) => [`Campur ${lc(p)} giling/cincang halus dengan ${lc(v)} cincang dan bawang.`, "Bentuk bola kecil seukuran kelereng.", "Kukus 15–20 menit hingga matang sempurna.", `Sajikan dengan ${lc(c)} dan sedikit kuah kaldu; belah kecil untuk usia di bawah 12 bulan.`],
@@ -333,7 +333,7 @@ const METHODS: Method[] = [
     proteins: ["sapi", "ayam", "ayampaha", "hatiayam", "hatisapi", "telur", "tahu"],
     vegs: ["wortel", "buncis", "tomat", "labusiam"],
     stages: [2, 3],
-    img: () => "d_stew",
+    img: () => "psemur",
     carb: (s) => pick(s, ["kentang", "nasi", "kentang"]),
     extras: () => [ing("bawang", 1, "siung"), ing("kaldu", 120, "ml"), ing("minyak", 1, "sdt")],
     steps: (p, v, c) => [PROTEIN_PREP[p], "Tumis bawang dengan sedikit pala dan kayu manis hingga harum (tanpa kecap untuk di bawah 12 bulan).", `Masukkan ${lc(p)}, ${lc(v)}, ${lc(c)}, dan kaldu; masak api kecil hingga sangat empuk.`, "Cincang atau potong kecil sesuai usia."],
@@ -346,7 +346,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "udang", "hatiayam", "sapi", "tahu", "tempe"],
     vegs: ["buncis", "brokoli", "sawi", "kembangkol", "zucchini", "jamur", "wortel", "labusiam"],
     stages: [2, 3],
-    img: (s, p) => (p === "udang" ? "d_shrimp" : p === "tahu" || p === "tempe" ? "d_tofu" : "d_vegsteam"),
+    img: (s, p) => (p === "udang" ? "d_shrimp" : p === "tahu" ? "ptahu" : p === "tempe" ? "ptempe" : "d_vegsteam"),
     carb: () => "nasi",
     extras: () => [ing("bawang", 1, "siung"), ing("minyak", 1, "sdt"), ing("kaldu", 50, "ml")],
     steps: (p, v) => [PROTEIN_PREP[p], "Tumis bawang dengan minyak hingga harum.", `Masukkan ${lc(p)} dan ${lc(v)}, tambahkan sedikit kaldu, masak hingga sayur sangat empuk.`, "Sajikan dengan nasi lembek, cincang sesuai tahap."],
@@ -359,7 +359,7 @@ const METHODS: Method[] = [
     proteins: ["telur"],
     vegs: ["wortel", "bayam", "brokoli", "tomat", "jagung", "buncis", "jamur", "zucchini", "sawi"],
     stages: [2, 3],
-    img: () => "d_omelette",
+    img: (s) => pick(s, ["pdadar", "d_omelette"]),
     carb: () => "nasi",
     extras: (s) => [ing(pick(s, ["mentega", "minyak"]), 1, "sdt")],
     steps: (_p, v) => [`Cincang halus ${lc(v)}, kukus atau tumis sebentar hingga empuk.`, "Kocok telur, masak dengan api kecil sambil diaduk hingga matang penuh.", "Campur dengan sayur, sajikan dengan nasi lembek."],
@@ -373,7 +373,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "udang", "telur", "sapi", "teri"],
     vegs: ["wortel", "buncis", "jagung", "brokoli", "kacangpanjang"],
     stages: [3],
-    img: () => "d_friedrice",
+    img: () => "pnasigoreng",
     carb: () => "nasi",
     extras: () => [ing("mentega", 1, "sdt"), ing("bawang", 1, "siung")],
     steps: (p, v) => [PROTEIN_PREP[p], "Lelehkan mentega, tumis bawang hingga harum.", `Masukkan ${lc(p)} dan ${lc(v)} cincang, lalu nasi; aduk rata dengan api kecil.`, "Tanpa garam tambahan; sajikan hangat."],
@@ -386,7 +386,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "sapi", "udang", "dori", "telur"],
     vegs: ["sawi", "wortel", "brokoli", "jamur", "bayam"],
     stages: [3],
-    img: () => "d_noodle",
+    img: (s) => pick(s, ["d_noodle", "pmie"]),
     carb: () => "mie",
     extras: () => [ing("kaldu", 150, "ml"), ing("bawang", 1, "siung")],
     steps: (p, v) => [PROTEIN_PREP[p], "Rebus mie hingga lebih empuk dari biasa, potong pendek.", `Didihkan kaldu dengan bawang, masukkan ${lc(v)} dan ${lc(p)}.`, "Tuang ke atas mie, sajikan hangat."],
@@ -399,7 +399,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "sapi", "dori", "salmon"],
     vegs: ["brokoli", "wortel", "jagung", "bayam", "kembangkol"],
     stages: [3],
-    img: () => "d_macaroni",
+    img: () => "pmakaroni",
     carb: () => "makaroni",
     extras: () => [ing("telur", 1, "butir"), ing("keju", 10), ing("mentega", 1, "sdt")],
     steps: (p, v) => [PROTEIN_PREP[p], "Rebus makaroni hingga empuk.", `Campur makaroni, ${lc(p)}, ${lc(v)} cincang, telur kocok, dan keju.`, "Masukkan cetakan bermentega, kukus 25 menit atau panggang 20 menit hingga set."],
@@ -412,7 +412,7 @@ const METHODS: Method[] = [
     proteins: ["ayam", "ayampaha", "sapi", "telur"],
     vegs: ["wortel", "bayam", "sawi", "kembangkol", "tomat"],
     stages: [3],
-    img: () => "x_soto",
+    img: () => "psoto",
     carb: () => "nasi",
     extras: () => [ing("kunyit", 0.5, "sdt"), ing("bawang", 1, "siung"), ing("kaldu", 150, "ml")],
     steps: (p, v) => [PROTEIN_PREP[p], "Tumis bawang dan kunyit, masukkan ke kaldu yang mendidih.", `Masukkan ${lc(p)} dan ${lc(v)}, masak hingga empuk.`, "Sajikan dengan nasi, potong kecil."],
@@ -425,7 +425,7 @@ const METHODS: Method[] = [
     proteins: ["sapi", "ayam", "telur", "tahu", "tempe"],
     vegs: ["wortel", "buncis", "tomat"],
     stages: [3],
-    img: () => "d_stew",
+    img: () => "psemur",
     carb: () => "kentang",
     extras: () => [ing("kecap", 0.5, "sdt"), ing("bawang", 1, "siung"), ing("kaldu", 100, "ml")],
     steps: (p, v) => [PROTEIN_PREP[p], "Tumis bawang dengan pala & kayu manis.", `Masukkan ${lc(p)}, ${lc(v)}, kentang, kaldu, dan kecap sedikit saja (usia 12 bulan ke atas).`, "Masak api kecil hingga empuk dan kuah menyusut."],
@@ -463,7 +463,7 @@ for (const m of METHODS)
 
 // ───────────── Snack ─────────────
 const FRUITS = ["pisang", "alpukat", "pepaya", "mangga", "melon", "pir", "apel", "naga"];
-const fruitPhoto = (f: string) => (f === "alpukat" ? "d_avocado" : ING[f].photo);
+const fruitPhoto = (f: string) => (f === "alpukat" ? "d_avocado" : f === "pisang" ? "pfruitpuree" : ING[f].photo);
 for (const f of FRUITS)
   add(build({ name: `Pure ${ING[f].short}`, family: "pure-buah", slot: "snack", stages: [1], img: fruitPhoto(f), minutes: f === "pir" || f === "apel" ? 15 : 5, freezable: false, items: [ing(f, 40)], steps: [f === "pir" || f === "apel" ? `Kupas ${lc(f)}, kukus hingga sangat lunak.` : `Kerok daging ${lc(f)} dengan sendok.`, "Lumatkan hingga halus; encerkan dengan ASI bila terlalu kental."] }));
 for (let a = 0; a < FRUITS.length; a++)
@@ -486,12 +486,12 @@ for (const f of ["pisang", "apel", "labukuning", "ubi", "pir"])
     add(build({ name: `Pancake ${base === "oat" ? "Oat " : ""}${ING[f].short}`, family: "pancake", slot: "snack", stages: [2, 3], img: "d_pancake", minutes: 15, freezable: true, items: [ing(f, 40), ing("telur", 1, "butir"), ing(base, 1, "sdm"), ing("mentega", 1, "sdt")], steps: [`Lumatkan ${lc(f)} (kukus dulu bila keras).`, `Campur dengan telur dan ${lc(base)}.`, "Tuang sesendok ke teflon bermentega, masak api kecil hingga matang di kedua sisi.", "Potong memanjang sebagai finger food."], extraTags: ["finger-food", "padat-energi"] }));
 for (const p of ["ayam", "dori", "sapi", "salmon", "tempe"])
   for (const v of ["wortel", "brokoli", "bayam", "jagung"])
-    add(build({ name: `Nugget ${ING[p].short} ${ING[v].short} Kukus`, family: "nugget", slot: "snack", stages: [2, 3], img: "d_nugget", minutes: 30, freezable: true, items: [ing(p, 30), ing(v, 15), ing("bawang", 0.5, "siung"), ing("terigu", 1, "sdt")], steps: [`Cincang halus ${lc(p)} dan ${lc(v)}, campur bawang dan sedikit tepung.`, "Bentuk lonjong kecil, kukus 20 menit hingga matang.", "Bisa dipanggang sebentar dengan sedikit minyak agar permukaan kering (bukan keras)."], extraTags: ["finger-food"] }));
+    add(build({ name: `Nugget ${ING[p].short} ${ING[v].short} Kukus`, family: "nugget", slot: "snack", stages: [2, 3], img: pick(p + v, ["pnugget", "d_nugget"]), minutes: 30, freezable: true, items: [ing(p, 30), ing(v, 15), ing("bawang", 0.5, "siung"), ing("terigu", 1, "sdt")], steps: [`Cincang halus ${lc(p)} dan ${lc(v)}, campur bawang dan sedikit tepung.`, "Bentuk lonjong kecil, kukus 20 menit hingga matang.", "Bisa dipanggang sebentar dengan sedikit minyak agar permukaan kering (bukan keras)."], extraTags: ["finger-food"] }));
 for (const c of ["kentang", "ubi"])
   for (const p of ["ayam", "dori", "tahu", "teri", "sapi", "telur"])
-    add(build({ name: `Perkedel ${ING[c].short} ${ING[p].short} Kukus`, family: "perkedel", slot: "snack", stages: [2, 3], img: "d_perkedel", minutes: 30, freezable: true, items: [ing(c, 40), p === "telur" ? ing("telur", 1, "butir") : ing(p, 20), ing("bawang", 0.5, "siung")], steps: [`Kukus ${lc(c)} lalu lumatkan.`, PROTEIN_PREP[p], "Campur semua, bentuk bulat pipih, kukus 10 menit atau panggang dengan sedikit minyak."], extraTags: ["finger-food"] }));
+    add(build({ name: `Perkedel ${ING[c].short} ${ING[p].short} Kukus`, family: "perkedel", slot: "snack", stages: [2, 3], img: "pperkedel", minutes: 30, freezable: true, items: [ing(c, 40), p === "telur" ? ing("telur", 1, "butir") : ing(p, 20), ing("bawang", 0.5, "siung")], steps: [`Kukus ${lc(c)} lalu lumatkan.`, PROTEIN_PREP[p], "Campur semua, bentuk bulat pipih, kukus 10 menit atau panggang dengan sedikit minyak."], extraTags: ["finger-food"] }));
 for (const v of ["wortel", "brokoli", "buncis", "zucchini", "labukuning", "kembangkol"])
-  add(build({ name: `Stik ${ING[v].short} Kukus`, family: "stik-sayur", slot: "snack", stages: [2, 3], img: "d_vegsteam", minutes: 15, freezable: false, items: [ing(v, 50), ing("minyak", 1, "sdt")], steps: [`Potong ${lc(v)} memanjang seukuran jari orang dewasa (brokoli per kuntum dengan batangnya).`, "Kukus hingga bisa dilumat dengan tekanan jari.", "Olesi sedikit minyak, sajikan hangat."], extraTags: ["finger-food"] }));
+  add(build({ name: `Stik ${ING[v].short} Kukus`, family: "stik-sayur", slot: "snack", stages: [2, 3], img: v === "brokoli" ? "pfinger" : "d_vegsteam", minutes: 15, freezable: false, items: [ing(v, 50), ing("minyak", 1, "sdt")], steps: [`Potong ${lc(v)} memanjang seukuran jari orang dewasa (brokoli per kuntum dengan batangnya).`, "Kukus hingga bisa dilumat dengan tekanan jari.", "Olesi sedikit minyak, sajikan hangat."], extraTags: ["finger-food"] }));
 for (const c of ["kentang", "ubi", "ubiungu"])
   add(build({ name: `Wedges ${ING[c].short} Panggang`, family: "wedges", slot: "snack", stages: [2, 3], img: "d_wedges", minutes: 30, freezable: false, items: [ing(c, 50), ing("minyak", 1, "sdt")], steps: [`Potong ${lc(c)} memanjang, kukus 10 menit.`, "Olesi minyak, panggang hingga empuk (bukan renyah keras)."], extraTags: ["finger-food"] }));
 for (const f of FRUITS.filter((x) => x !== "alpukat"))
@@ -506,10 +506,10 @@ for (const p of ["ayam", "salmon", "telur", "teri", "sapi"])
   for (const v of ["wortel", "bayam", "jagung"])
     add(build({ name: `Bola Nasi ${ING[p].short} ${ING[v].short}`, family: "bola-nasi", slot: "snack", stages: [2, 3], img: "d_ricebowl", minutes: 20, freezable: false, items: [ing("nasi", 50), p === "telur" ? ing("telur", 1, "butir") : ing(p, 20), ing(v, 10)], steps: [PROTEIN_PREP[p], `Campur nasi hangat dengan ${lc(p)} dan ${lc(v)} cincang.`, "Kepal kecil seukuran genggaman bayi."], extraTags: ["finger-food"] }));
 for (const v of ["bayam", "wortel", "brokoli", "jagung", "tomat", "jamur"])
-  add(build({ name: `Omelet Mini ${ING[v].short}`, family: "omelet", slot: "snack", stages: [2, 3], img: "d_omelette", minutes: 10, freezable: false, items: [ing("telur", 1, "butir"), ing(v, 15), ing("minyak", 1, "sdt")], steps: [`Kocok telur dengan ${lc(v)} cincang.`, "Masak api kecil hingga matang penuh, potong stik."], extraTags: ["finger-food"] }));
+  add(build({ name: `Omelet Mini ${ING[v].short}`, family: "omelet", slot: "snack", stages: [2, 3], img: pick(v, ["pdadar", "d_omelette"]), minutes: 10, freezable: false, items: [ing("telur", 1, "butir"), ing(v, 15), ing("minyak", 1, "sdt")], steps: [`Kocok telur dengan ${lc(v)} cincang.`, "Masak api kecil hingga matang penuh, potong stik."], extraTags: ["finger-food"] }));
 // Bubur sumsum & bubur kacang hijau versi bayi
 for (const f of ["labukuning", "pisang", "ubi"])
-  add(build({ name: `Bubur Sumsum ${ING[f].short}`, family: "sumsum", slot: "snack", stages: [1, 2, 3], img: "x_riceporridge2", minutes: 20, freezable: false, items: [ing("beras", 10), ing("santan", 60, "ml"), ing(f, 20)], steps: ["Larutkan tepung beras (atau beras yang dihaluskan) dalam santan.", "Masak sambil terus diaduk hingga mengental.", `Campur ${lc(f)} lumat. Tanpa gula untuk di bawah 12 bulan.`], extraTags: ["padat-energi"] }));
+  add(build({ name: `Bubur Sumsum ${ING[f].short}`, family: "sumsum", slot: "snack", stages: [1, 2, 3], img: "psumsum", minutes: 20, freezable: false, items: [ing("beras", 10), ing("santan", 60, "ml"), ing(f, 20)], steps: ["Larutkan tepung beras (atau beras yang dihaluskan) dalam santan.", "Masak sambil terus diaduk hingga mengental.", `Campur ${lc(f)} lumat. Tanpa gula untuk di bawah 12 bulan.`], extraTags: ["padat-energi"] }));
 
 export const RECIPES: Recipe[] = R;
 export const RECIPE_MAP: Record<string, Recipe> = Object.fromEntries(RECIPES.map((r) => [r.id, r]));
