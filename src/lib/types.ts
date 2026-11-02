@@ -31,8 +31,21 @@ export interface Recipe {
   cost: 1 | 2 | 3;
   minutes: number;
   freezable: boolean;
-  img: string; // kunci foto hidangan (photos.ts)
+  img: string; // foto hidangan asli hasil recook (/resep/<id>.jpg) atau "" bila belum ada
   family: string; // jenis olahan, mis. "bubur", "nasi-tim"
+  base: Stage; // takaran ditulis untuk tahap ini
+  verified: boolean; // sudah dimasak ulang & ditinjau
+  nutrition: Nutrition; // per 1 porsi pada tahap `base`
+}
+
+export interface Nutrition {
+  kcal: number;
+  protein: number; // g
+  fat: number; // g
+  carb: number; // g
+  iron: number; // mg
+  zinc: number; // mg
+  calcium: number; // mg
 }
 
 export interface QuizAnswers {

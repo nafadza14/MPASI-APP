@@ -8,7 +8,7 @@ import { RECIPES } from "@/lib/recipes";
 import { SITE } from "@/lib/site";
 
 const UPDATED = "2026-11-02";
-const N = Math.floor(RECIPES.length / 100) * 100;
+const N = Math.floor(RECIPES.length / 10) * 10;
 
 export const metadata: Metadata = {
   title: "Panduan MPASI 6–24 Bulan: Jadwal, Porsi, Tekstur & Contoh Menu",

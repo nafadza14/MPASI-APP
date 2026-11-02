@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "motion/react";
-import { Plate } from "@/components/Img";
+import { RecipePlate } from "@/components/Img";
 import { RecipeBody } from "@/components/RecipeView";
 import { MEAL_LABEL } from "@/components/food";
 import { IconBack, IconHeart } from "@/components/icons";
@@ -55,7 +55,7 @@ export default function RecipeScreen({ token, recipeId, stage, label, newAllerge
         </div>
       </div>
       <motion.div initial={{ y: 40, opacity: 0, rotate: -25 }} animate={{ y: 0, opacity: 1, rotate: 0 }} transition={{ ...spring, delay: 0.1 }} className="-mt-[140px] flex justify-center">
-        <Plate k={r.img} size={240} />
+        <RecipePlate recipeId={r.id} size={240} />
       </motion.div>
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.15, ease: IOS_EASE }}>
         <h1 className="mt-5 px-6 text-center text-[24px] font-bold leading-tight">{r.name}</h1>

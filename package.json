@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "tsx --test tests/generator.test.ts"
+    "test": "tsx --test tests/generator.test.ts",
+    "prebuild": "node scripts/photo-manifest.mjs",
+    "predev": "node scripts/photo-manifest.mjs"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.3.0",

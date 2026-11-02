@@ -3,7 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { Avatar, Button, SectionHead } from "@/components/ui";
-import { Photo, Plate } from "@/components/Img";
+import { Photo, Plate, RecipePlate } from "@/components/Img";
 import { FoodCard, FoodRow, MEAL_LABEL } from "@/components/food";
 import { Item, Sheet, Stagger, IOS_EASE } from "@/components/motion";
 import UpsellButton from "@/components/UpsellButton";
@@ -250,7 +250,7 @@ function HomeTab(p: Props & { plans: Plan[]; month: number; setMonth: (m: number
               }}
               className={`flex w-full items-center gap-3 rounded-[20px] p-3 text-left ${m === month ? "bg-teal-50 ring-2 ring-teal-500" : "bg-[#f7f8fa]"}`}
             >
-              <Plate k={RECIPE_MAP[pl.days[0].meals[0].recipeId]?.img ?? "d_babyfood"} size={52} />
+              <RecipePlate recipeId={pl.days[0].meals[0].recipeId} size={52} />
               <span className="flex-1">
                 <span className="block font-semibold">Bulan {m + 1}</span>
                 <span className="text-xs text-muted">Mulai {new Date(pl.startDate + "T00:00:00").toLocaleDateString("id-ID", { day: "numeric", month: "long" })}</span>

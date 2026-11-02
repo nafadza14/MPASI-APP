@@ -268,7 +268,7 @@ export function shoppingList(plan: Plan, from: number, to: number) {
       const r = RECIPE_MAP[m.recipeId];
       for (const ing of r.ingredients) {
         const key = `${ing.item}|${ing.unit}`;
-        const q = ing.unit === "g" || ing.unit === "ml" ? scaleQty(ing.qty, day.stage) : ing.qty;
+        const q = ing.unit === "g" || ing.unit === "ml" ? scaleQty(ing.qty, day.stage, r.base) : ing.qty;
         const cur = map.get(key) ?? { item: ing.item, unit: ing.unit, qty: 0, group: ing.group };
         cur.qty += q;
         map.set(key, cur);

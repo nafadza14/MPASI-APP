@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     url: SITE.url,
     siteName: SITE.name,
     title: "Menu MPASI Personal 30 Hari untuk si kecil",
-    description: "Sesuai usia, tekstur & alergi anak Bunda. 1.600+ resep rumahan. Coba 3 hari pertama gratis.",
+    description: "Sesuai usia, tekstur & alergi anak Bunda. 160+ resep rumahan. Coba 3 hari pertama gratis.",
     images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Menu MPASI Personal 30 Hari — MPASI APP by Flourish Care" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Menu MPASI Personal 30 Hari untuk si kecil",
-    description: "Sesuai usia, tekstur & alergi anak Bunda. 1.600+ resep rumahan. Coba 3 hari pertama gratis.",
+    description: "Sesuai usia, tekstur & alergi anak Bunda. 160+ resep rumahan. Coba 3 hari pertama gratis.",
     images: ["/og.jpg"],
   },
   icons: {

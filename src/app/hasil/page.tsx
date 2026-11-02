@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { Avatar, LinkButton, SectionHead } from "@/components/ui";
-import { Photo, Plate } from "@/components/Img";
+import { Photo, Plate, RecipePlate } from "@/components/Img";
 import { CategoryTile, FoodCard, FoodRow, MEAL_LABEL } from "@/components/food";
 import { Item, Sheet, Stagger, IOS_EASE } from "@/components/motion";
 import { RecipeBody } from "@/components/RecipeView";
@@ -134,7 +134,7 @@ function Hasil() {
       <section className="px-5">
         <div className="relative overflow-hidden rounded-[28px] bg-orange-500 p-5 text-white shadow-[0_16px_34px_rgba(251,154,27,0.35)]">
           <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-white/10" />
-          <Plate k={RECIPE_MAP[plan.days[4].meals[0].recipeId]?.img ?? "x_carrotsoup"} size={108} className="absolute -right-3 bottom-4" />
+          <RecipePlate recipeId={plan.days[4].meals[0].recipeId} size={108} className="absolute -right-3 bottom-4" />
           <p className="text-xs font-medium opacity-90">27 hari lagi sudah tersusun</p>
           <p className="mt-1 max-w-[62%] text-[19px] font-bold leading-snug">Buka 30 hari menu {name}</p>
           <p className="mt-1 text-xs opacity-90">Mulai {rupiah(PACKAGES.dasar.price)} · sekali bayar QRIS</p>
@@ -215,7 +215,7 @@ function Hasil() {
         {sheet && typeof sheet === "object" && (
           <div>
             <div className="flex flex-col items-center px-5 pb-4 text-center">
-              <Plate k={RECIPE_MAP[sheet.meal.recipeId]?.img ?? "d_babyfood"} size={170} />
+              <RecipePlate recipeId={sheet.meal.recipeId} size={170} />
               <p className="mt-4 text-xs font-medium text-teal-600">{MEAL_LABEL[sheet.meal.label]}</p>
               <p className="text-xl font-bold">{RECIPE_MAP[sheet.meal.recipeId]?.name}</p>
             </div>
