@@ -4,7 +4,7 @@
 
 Fakta utama:
 - Untuk usia 6–24 bulan; tekstur naik bertahap (lumat → cincang → makanan keluarga).
-- 160+ resep MPASI rumahan Indonesia (bubur, nasi tim, soto, opor, pepes, nugget, dll.) dengan takaran per porsi dan perkiraan nilai gizi (energi, protein, zat besi, zinc, kalsium).
+- Resep MPASI rumahan Indonesia (bubur, nasi tim, soto, opor, pepes, nugget, dll.) dipilih paling sesuai usia, tekstur, alergi, dan bahan si kecil; tiap resep memuat takaran per porsi dan perkiraan nilai gizi (energi, protein, zat besi, zinc, kalsium).
 - Aturan keamanan: protein hewani setiap hari, alergen anak tidak dipakai, alergen baru dikenalkan satu per satu selama 3 hari, tanpa madu/gula/garam/kecap di bawah 12 bulan.
 - Fitur: jadwal harian 30 hari, resep langkah demi langkah, daftar belanja mingguan, ganti menu, favorit, cetak PDF.
 - 3 hari pertama gratis tanpa daftar. Harga sekali bayar via QRIS: Dasar Rp 59.000, Lengkap Rp 79.000, 3 Bulan Bertahap Rp 199.000. Garansi uang kembali 7 hari.

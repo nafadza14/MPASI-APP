@@ -4,11 +4,9 @@ import { Logo } from "@/components/Logo";
 import JsonLd from "@/components/JsonLd";
 import { IconBack } from "@/components/icons";
 import { PACKAGES, rupiah } from "@/lib/pricing";
-import { RECIPES } from "@/lib/recipes";
 import { SITE } from "@/lib/site";
 
 const UPDATED = "2026-11-02";
-const N = Math.floor(RECIPES.length / 10) * 10;
 
 export const metadata: Metadata = {
   title: "Panduan MPASI 6–24 Bulan: Jadwal, Porsi, Tekstur & Contoh Menu",
@@ -37,7 +35,7 @@ const FAQ = [
   { q: "Apakah MPASI harus mengandung protein hewani setiap hari?", a: "Ya. IDAI menekankan protein hewani (hati ayam, daging, ikan, telur) setiap hari karena kaya zat besi dan zinc yang dibutuhkan bayi sejak 6 bulan untuk mencegah anemia dan stunting." },
   { q: "Bolehkah bayi di bawah 1 tahun diberi madu, gula, atau garam?", a: "Madu tidak boleh diberikan sebelum 12 bulan karena risiko botulisme. WHO menyarankan tidak menambahkan gula dan garam pada makanan bayi di bawah 12 bulan; gunakan kaldu tanpa garam, bawang, dan rempah ringan untuk rasa." },
   { q: "Bagaimana cara mengenalkan makanan yang berpotensi alergi?", a: "Kenalkan satu bahan baru dalam satu waktu (misalnya telur), berikan di pagi hari, dan tunggu sekitar 3 hari sebelum mengenalkan bahan baru lainnya sambil mengamati ruam, muntah, atau diare. Bila anak sudah diketahui alergi, hindari bahan tersebut dan konsultasikan ke dokter anak." },
-  { q: "Apa itu Menu MPASI Personal 30 Hari dari MPASI APP?", a: `Aplikasi web yang menyusun jadwal menu MPASI 30 hari khusus untuk anak Bunda berdasarkan kuis singkat: usia, tekstur, alergi, bahan yang tersedia, dan waktu memasak. Berisi ${N}+ variasi resep rumahan dengan takaran per porsi, daftar belanja mingguan, dan bisa dicetak. 3 hari pertama bisa dilihat gratis.` },
+  { q: "Apa itu Menu MPASI Personal 30 Hari dari MPASI APP?", a: `Aplikasi web yang menyusun jadwal menu MPASI 30 hari khusus untuk anak Bunda berdasarkan kuis singkat: usia, tekstur, alergi, bahan yang tersedia, dan waktu memasak. Resep rumahan dipilih paling sesuai profil dan usia si kecil, lengkap dengan takaran per porsi, nilai gizi tiap resep, daftar belanja mingguan, dan bisa dicetak. 3 hari pertama bisa dilihat gratis.` },
   { q: "Berapa harga Menu MPASI Personal 30 Hari?", a: `Paket Dasar ${rupiah(PACKAGES.dasar.price)}, paket Lengkap ${rupiah(PACKAGES.lengkap.price)}, dan paket 3 Bulan Bertahap ${rupiah(PACKAGES.tigabulan.price)}. Sekali bayar lewat QRIS (semua e-wallet & m-banking), dengan garansi uang kembali 7 hari.` },
 ];
 
@@ -182,7 +180,7 @@ export default function Page() {
 
         <h2>Menu MPASI Personal 30 Hari</h2>
         <p>
-          Menyusun 30 hari menu yang bervariasi, aman untuk alergi anak, dan sesuai tekstur itu melelahkan. <b>MPASI APP</b> menyusunnya otomatis dari kuis 1 menit: {N}+ resep rumahan dengan takaran per porsi, protein
+          Menyusun 30 hari menu yang bervariasi, aman untuk alergi anak, dan sesuai tekstur itu melelahkan. <b>MPASI APP</b> menyusunnya otomatis dari kuis 1 menit: resep rumahan yang dipilih paling sesuai profil dan usia si kecil, takaran dan nilai gizi per porsi, protein
           hewani setiap hari, alergen dikenalkan bertahap, daftar belanja mingguan, dan bisa dicetak. Lihat 3 hari pertama gratis, buka 30 hari mulai {rupiah(PACKAGES.dasar.price)} sekali bayar via QRIS, garansi
           uang kembali 7 hari.
         </p>

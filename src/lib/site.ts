@@ -5,7 +5,7 @@ export const SITE = {
   brand: "Flourish Care",
   title: "Menu MPASI Personal 30 Hari — sesuai usia, tekstur & alergi | MPASI APP",
   description:
-    "Jadwal menu MPASI 30 hari yang disusun khusus untuk si kecil (6–24 bulan): sesuai usia, tekstur, alergi, dan bahan di rumah. 160+ resep rumahan, daftar belanja mingguan, mengikuti panduan WHO & IDAI. Coba 3 hari pertama gratis.",
+    "Jadwal menu MPASI 30 hari yang disusun khusus untuk si kecil (6–24 bulan): sesuai usia, tekstur, alergi, dan bahan di rumah. resep rumahan yang dipilih paling sesuai profil si kecil dengan nilai gizi tiap resep, daftar belanja mingguan, mengikuti panduan WHO & IDAI. Coba 3 hari pertama gratis.",
   keywords: [
     "menu MPASI",
     "menu MPASI 6 bulan",

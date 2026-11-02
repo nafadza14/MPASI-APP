@@ -12,7 +12,7 @@ import { RECIPES } from "@/lib/recipes";
 
 const SLIDES = [
   { photo: "pbaby1", float: ["carrot", "spinach", "chicken"], title: "Menu MPASI yang pas untuk si kecil", sub: "Disusun dari usia, tekstur, dan alergi anak Bunda — bukan template yang sama untuk semua." },
-  { photo: "pporridge3", plate: true, float: ["pumpkin", "egg", "broccoli"], title: `${Math.floor(RECIPES.length / 10) * 10}+ variasi resep rumahan`, sub: "Masakan rumahan dengan takaran per porsi dan nilai gizi tiap resep, tekstur naik bertahap sesuai panduan WHO & IDAI." },
+  { photo: "pporridge3", plate: true, float: ["pumpkin", "egg", "broccoli"], title: "Resep yang paling pas untuk si kecil", sub: "Dipilih dari profil dan usia si kecil, dengan gizi seimbang tiap hari dan nilai gizi di setiap resep. Mengacu panduan WHO & IDAI." },
   { photo: "h_highchair", float: ["avocado", "banana", "salmon"], title: "Lihat 3 hari pertama gratis", sub: "Kalau cocok, buka 30 hari dengan sekali bayar QRIS. Garansi uang kembali 7 hari." },
 ];
 

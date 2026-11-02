@@ -234,7 +234,8 @@ function Building({ a, stage, date, onDone }: { a: QuizAnswers; stage: Stage; da
     `Menyesuaikan tekstur: ${STAGE_LABEL[stage].toLowerCase()}`,
     a.allergies.length ? `Menghindari ${a.allergies.map((x) => ALLERGY_LABEL[x]).join(", ")}` : "Menjadwalkan pengenalan alergen",
     "Memastikan protein hewani setiap hari",
-    "Memilih dari ratusan variasi resep",
+    "Memilih resep paling sesuai profil & usianya",
+    "Menyeimbangkan gizi harian: energi, protein, zat besi",
   ];
   useEffect(() => {
     const t = setInterval(() => setMsg((m) => m + 1), 1200);
