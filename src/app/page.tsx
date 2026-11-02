@@ -1,103 +1,108 @@
-import Image from "next/image";
+import Link from "next/link";
+import { BowlIllustration } from "@/components/Illustration";
+import { Card, FoodBubble } from "@/components/ui";
+import UtmCapture from "@/components/UtmCapture";
 
-export default function Home() {
+const benefits = [
+  { emoji: "👶", title: "Sesuai usia dalam bulan", desc: "Tekstur & porsi naik bertahap mengikuti panduan WHO dan IDAI." },
+  { emoji: "🚫", title: "Otomatis menghindari alergi", desc: "Pilih telur, susu sapi, ikan, dll — menu tidak akan memuatnya." },
+  { emoji: "🛒", title: "Daftar belanja mingguan", desc: "Belanja sekali seminggu, sesuai budget dan bahan di sekitar Bunda." },
+];
+
+const faqs = [
+  ["Apakah benar dibuat khusus untuk anak saya?", "Ya. Menu disusun dari jawaban kuis: usia tepat, tahap tekstur, alergi, protein yang mudah didapat, budget, dan waktu masak. Nama si kecil ada di setiap halaman."],
+  ["Bisa lihat isinya dulu sebelum bayar?", "Bisa. Setelah kuis, Bunda melihat menu hari 1–3 lengkap secara gratis."],
+  ["Bayarnya bagaimana?", "Sekali bayar lewat QRIS dari GoPay, OVO, DANA, ShopeePay, atau m-banking. Tidak ada langganan otomatis."],
+  ["Apakah ini pengganti dokter?", "Bukan. Panduan ini bersifat edukasi. Untuk BB tidak naik, alergi berat, atau kondisi khusus, konsultasikan ke dokter anak atau posyandu."],
+  ["Kalau tidak cocok?", "Ada garansi 7 hari: hubungi admin, uang kembali."],
+];
+
+export default function Landing() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="pb-28">
+      <UtmCapture />
+      <section className="px-6 pt-10 text-center">
+        <p className="text-xs font-semibold uppercase tracking-widest text-teal-600">Flouris Care · Menu MPASI</p>
+        <BowlIllustration className="mx-auto mt-4 w-60" />
+        <h1 className="mt-4 text-[26px] font-bold leading-tight">Menu MPASI 30 hari, disusun khusus untuk si kecil</h1>
+        <p className="mt-3 text-sm leading-relaxed text-muted">Jawab 10 pertanyaan singkat, lihat 3 hari pertama gratis. Sesuai usia, tekstur, alergi, dan bahan di rumah.</p>
+        <div className="mt-5 flex justify-center gap-1.5" aria-hidden>
+          <span className="h-1.5 w-6 rounded-full bg-teal-500" />
+          <span className="h-1.5 w-1.5 rounded-full bg-teal-100" />
+          <span className="h-1.5 w-1.5 rounded-full bg-teal-100" />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      <section className="mt-8 space-y-3 px-5">
+        {benefits.map((b) => (
+          <Card key={b.title} className="flex items-center gap-4">
+            <FoodBubble emoji={b.emoji} size={52} />
+            <div>
+              <p className="font-semibold">{b.title}</p>
+              <p className="text-[13px] leading-snug text-muted">{b.desc}</p>
+            </div>
+          </Card>
+        ))}
+      </section>
+
+      <section className="mt-8 px-5">
+        <p className="mb-3 text-lg font-semibold">Contoh isi menu</p>
+        <Card className="overflow-hidden p-0">
+          <div className="bg-teal-500 px-5 py-4 text-white">
+            <p className="text-xs opacity-80">Menu MPASI · Alya, 7 bulan 2 minggu</p>
+            <div className="mt-2 flex items-end gap-4 font-semibold">
+              <span className="text-xl opacity-50">3</span>
+              <span className="text-xl opacity-70">4</span>
+              <span className="text-4xl">5</span>
+              <span className="text-xl opacity-70">6</span>
+              <span className="text-xl opacity-50">7</span>
+              <span className="ml-auto text-xs opacity-80">Hari</span>
+            </div>
+          </div>
+          {[
+            ["Pagi", "Bubur Hati Ayam Bayam", "🥬", "Sumber zat besi"],
+            ["Snack", "Pure Alpukat", "🥑", "Lemak tambahan"],
+            ["Siang", "Bubur Ikan Kembung Labu", "🐟", "Protein hewani"],
+          ].map(([t, n, e, tag]) => (
+            <div key={n} className="flex items-center gap-3 border-b border-line px-5 py-3 last:border-0">
+              <FoodBubble emoji={e} size={44} />
+              <div className="flex-1">
+                <p className="text-[11px] text-muted">{t}</p>
+                <p className="text-sm font-medium">{n}</p>
+              </div>
+              <span className="text-[11px] text-teal-600">{tag}</span>
+            </div>
+          ))}
+        </Card>
+      </section>
+
+      <section className="mt-8 px-5">
+        <p className="mb-3 text-lg font-semibold">Pertanyaan yang sering muncul</p>
+        <div className="space-y-2">
+          {faqs.map(([q, a]) => (
+            <details key={q} className="group rounded-2xl bg-canvas px-4 py-3">
+              <summary className="cursor-pointer list-none text-sm font-medium">{q}</summary>
+              <p className="mt-2 text-[13px] leading-relaxed text-muted">{a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <footer className="mt-10 px-6 text-center text-[11px] leading-relaxed text-muted">
+        <p>Mengikuti panduan umum WHO (2023) dan IDAI. Resep ditinjau ahli gizi.</p>
+        <p className="mt-1">Panduan edukasi, bukan pengganti konsultasi dokter.</p>
+        <p className="mt-3 space-x-3">
+          <Link href="/privasi">Privasi</Link>
+          <Link href="/syarat">Syarat</Link>
+          <Link href="/refund">Refund</Link>
+        </p>
       </footer>
-    </div>
+
+      <div className="no-print fixed inset-x-0 bottom-0 z-20 mx-auto max-w-[440px] bg-gradient-to-t from-white via-white to-white/0 px-5 pb-5 pt-6">
+        <Link href="/kuis" className="block w-full rounded-full bg-teal-500 py-4 text-center font-semibold text-white shadow-[var(--shadow-lift)]">
+          Mulai, gratis 2 menit
+        </Link>
+      </div>
+    </main>
   );
 }
