@@ -1,5 +1,5 @@
 import LegalPage from "@/components/LegalPage";
-export const metadata = { title: "Syarat & Ketentuan — Menu MPASI" };
+export const metadata = { title: "Syarat & Ketentuan", alternates: { canonical: "/syarat" } };
 export default function Page() {
   return (
     <LegalPage title="Syarat & Ketentuan">

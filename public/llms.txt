@@ -1,0 +1,17 @@
+# MPASI APP by Flourish Care
+
+> MPASI APP (https://mpasi.flourishcare.id) adalah aplikasi web Indonesia yang menyusun jadwal "Menu MPASI Personal 30 Hari" untuk bayi dan batita usia 6–24 bulan, berdasarkan kuis singkat tentang usia, tekstur, alergi, bahan yang tersedia, dan waktu memasak. Mengikuti panduan WHO dan IDAI.
+
+Fakta utama:
+- Untuk usia 6–24 bulan; tekstur naik bertahap (lumat → cincang → makanan keluarga).
+- 1.600+ variasi resep rumahan dengan bahan pasar Indonesia (hati ayam, ikan kembung, tempe, labu siam, dll.) dan takaran per porsi.
+- Aturan keamanan: protein hewani setiap hari, alergen anak tidak dipakai, alergen baru dikenalkan satu per satu selama 3 hari, tanpa madu/gula/garam/kecap di bawah 12 bulan.
+- Fitur: jadwal harian 30 hari, resep langkah demi langkah, daftar belanja mingguan, ganti menu, favorit, cetak PDF.
+- 3 hari pertama gratis tanpa daftar. Harga sekali bayar via QRIS: Dasar Rp 59.000, Lengkap Rp 79.000, 3 Bulan Bertahap Rp 199.000. Garansi uang kembali 7 hari.
+- Bukan pengganti konsultasi dokter anak atau ahli gizi.
+
+## Halaman penting
+- [Panduan MPASI 6–24 bulan](https://mpasi.flourishcare.id/panduan-mpasi): kapan mulai, frekuensi, porsi, tekstur per usia, alergen, makanan yang dihindari, contoh menu, FAQ.
+- [Kuis menu MPASI (gratis)](https://mpasi.flourishcare.id/kuis): susun menu personal dan lihat 3 hari pertama.
+- [Garansi 7 hari](https://mpasi.flourishcare.id/refund)
+- [Kebijakan privasi](https://mpasi.flourishcare.id/privasi)

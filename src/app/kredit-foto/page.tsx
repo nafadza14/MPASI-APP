@@ -1,7 +1,7 @@
 import LegalPage from "@/components/LegalPage";
 import { PEXELS, PHOTOS } from "@/lib/photos";
 
-export const metadata = { title: "Kredit Foto — Menu MPASI" };
+export const metadata = { title: "Kredit Foto", alternates: { canonical: "/kredit-foto" } };
 
 export default function Page() {
   const px = new Set(Object.keys(PEXELS));

@@ -1,5 +1,5 @@
 import LegalPage from "@/components/LegalPage";
-export const metadata = { title: "Kebijakan Refund — Menu MPASI" };
+export const metadata = { title: "Kebijakan Refund", alternates: { canonical: "/refund" } };
 export default function Page() {
   return (
     <LegalPage title="Garansi 7 Hari">

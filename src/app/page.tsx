@@ -6,6 +6,7 @@ import { Dots, LinkButton } from "@/components/ui";
 import { Photo, Plate } from "@/components/Img";
 import { Sheet } from "@/components/motion";
 import { FoodRow } from "@/components/food";
+import { Logo } from "@/components/Logo";
 import { store } from "@/lib/client";
 import { RECIPES } from "@/lib/recipes";
 
@@ -44,7 +45,7 @@ export default function Onboarding() {
   return (
     <main className="flex min-h-dvh flex-col px-6 pb-6 pt-5">
       <div className="flex items-center justify-between text-xs">
-        <span className="font-semibold tracking-wide text-teal-600">flourish care · MPASI</span>
+        <Logo />
         <button onClick={() => setSample(true)} className="text-muted">
           Contoh menu
         </button>
@@ -99,7 +100,7 @@ export default function Onboarding() {
         <LinkButton href="/kuis">Mulai Gratis</LinkButton>
       </div>
       <p className="mt-4 text-center text-[11px] text-muted">
-        Panduan WHO & IDAI · <Link href="/privasi">Privasi</Link> · <Link href="/syarat">Syarat</Link> · <Link href="/refund">Garansi</Link>
+        <Link href="/panduan-mpasi">Panduan MPASI</Link> · <Link href="/privasi">Privasi</Link> · <Link href="/syarat">Syarat</Link> · <Link href="/refund">Garansi</Link>
       </p>
 
       <Sheet open={sample} onClose={() => setSample(false)} title="Contoh menu satu hari">

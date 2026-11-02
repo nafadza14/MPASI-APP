@@ -1,5 +1,5 @@
 import LegalPage from "@/components/LegalPage";
-export const metadata = { title: "Kebijakan Privasi — Menu MPASI" };
+export const metadata = { title: "Kebijakan Privasi", alternates: { canonical: "/privasi" } };
 export default function Page() {
   return (
     <LegalPage title="Kebijakan Privasi">
